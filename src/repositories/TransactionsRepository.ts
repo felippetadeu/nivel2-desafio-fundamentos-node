@@ -1,10 +1,19 @@
+import { uuid } from 'uuidv4';
 import Transaction from '../models/Transaction';
+import transactionRouter from '../routes/transaction.routes';
 
 interface Balance {
   income: number;
   outcome: number;
   total: number;
 }
+
+interface TransactionDTO {
+  title: string;
+  value: number;
+  type: 'income' | 'outcome';
+}
+
 
 class TransactionsRepository {
   private transactions: Transaction[];
